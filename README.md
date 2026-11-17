@@ -1,10 +1,10 @@
-# Tiny Chess — a 4,082-byte engine for make.fun tiny-chess-01
+# Tiny Chess — a 3,807-byte engine for make.fun tiny-chess-01
 
-[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
-[![rank](https://make.fun/badge/tiny-chess-01/silver-finch-59/tiny-chess-01/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
-[![reward](https://make.fun/badge/tiny-chess-01/silver-finch-59/tiny-chess-01/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/silver-finch-59/tiny-chess-01/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard)
+[![reward](https://make.fun/badge/tiny-chess-01/silver-finch-59/tiny-chess-01/reward.svg)](https://make.fun/bounty/tiny-chess-01)
 
-A chess engine in a single `main.py` (4,082 of the 4,096 allowed bytes),
+A chess engine in a single `main.py` (3,807 of the 4,096 allowed bytes),
 Python 3.13 standard library only, for the
 [make.fun](https://make.fun) tiny-chess-01 bounty ($500, 20 places).
 It talks to the competition env over HTTP (`/game`, `/move`, `/resign`)
@@ -30,10 +30,10 @@ and plays every move by search — no clock, no network, no other files.
 
 ## Build
 
-`main.py` is a 63-byte unpacker (`lzma` + base85) around the minified
-engine. The readable source is minified (tokenize-based, identifiers
-renamed, lines joined), compressed with LZMA1 (`lc0 lp0 pb0`), and
-base85-encoded. Nothing is read, imported, or exec'd from any other file.
+`main.py` is the kit's `makefun-compress/v1` stub (LZMA) around the
+readable source `engine.py`, kept beside it and uncommitted. The entry
+is built with `node cli/makefun.mjs compress engine.py --out main.py`.
+Nothing is read, imported, or exec'd from any other file.
 
 ## Verification
 
